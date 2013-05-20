@@ -7,7 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<b>
+		<%= link_to 'List', weight_records_path %> |
+		<%= link_to 'Chart', chart_weight_records_path %>
+	</b>
 <%= yield %>
 
 </body>

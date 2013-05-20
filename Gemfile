@@ -38,5 +38,4 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'therubyracer'
-gem 'gchartrb'
 gem 'dygraphs-rails'

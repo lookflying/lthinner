@@ -2,11 +2,9 @@ Lthinner::Application.routes.draw do
   resources :weight_records do
 		collection do
 			get 'chart'
-			get 'gchart'
-			get 'dygraph'
 		end
 	end
-  root :to => "weight_records#index"
+  root :to => "weight_records#chart"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
