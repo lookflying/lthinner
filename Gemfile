@@ -39,3 +39,4 @@ gem 'jquery-rails'
 
 gem 'therubyracer'
 gem 'gchartrb'
+gem 'dygraphs-rails'

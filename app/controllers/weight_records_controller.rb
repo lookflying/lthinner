@@ -1,23 +1,30 @@
 require 'rubygems'
 require 'google_chart'
 class WeightRecordsController < ApplicationController
-	
-	
-	def chart
-		 # Pie Chart
-    GoogleChart::PieChart.new('320x200', "Pie Chart",false) do |pc|
-      pc.data "Apples", 40
-      pc.data "Banana", 20
-      pc.data "Peach", 30
-      pc.data "Orange", 60
-      puts "\nPie Chart"
-      puts pc.to_url
+	def dygraph
+		@records = WeightRecord.all
+	end
 
-      # Pie Chart with no labels
-      pc.show_labels = false
-      puts "\nPie Chart (with no labels)"
-      puts pc.to_url  
+	def gchart
+    # Line Chart
+		@weight_records = WeightRecord.all
+		@records_array = []
+		@string = ""
+		@weight_records.each do |record|
+			@records_array.push(record.weight)
+			@string << record.weight.to_s + " "
+		end
+    GoogleChart::LineChart.new('320x200', "Line Chart", false) do |lc|
+      lc.data "Weight", @records_array, '0000ff'
+      lc.show_legend = true
+      lc.axis :y, :range => [0,200], :color => 'ff00ff', :font_size => 16, :alignment => :center
+      lc.axis :x, :range => [0,50], :color => '00ffff', :font_size => 16, :alignment => :center
+      lc.grid :x_step => 100.0/6.0, :y_step => 100.0/6.0, :length_segment => 1, :length_blank => 0
+      @url = lc.to_url
     end
+	end	
+
+	def chart
 	end
 	
   # GET /weight_records
