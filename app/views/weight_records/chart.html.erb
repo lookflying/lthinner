@@ -3,14 +3,16 @@
 		<script type="text/javascript" src="dygraph-combined.js"></script>
 	</head>
 	<body>
-		<div id="graphdiv">Weight Graph</div>
+		<div style="width: 800px; height: 320px;" id="graphdiv"></div>
 		<script type="text/javascript">
 			g = new Dygraph(
 		
 				// containing div
 				document.getElementById("graphdiv"),
-				"<%=dygraph_format(@records)%>"
-				);
+				"<%=dygraph_format(@records)%>",
+				{
+				}
+			);
 		</script>
 	</body>
 </html>

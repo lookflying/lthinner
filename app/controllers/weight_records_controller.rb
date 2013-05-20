@@ -7,7 +7,7 @@ class WeightRecordsController < ApplicationController
   # GET /weight_records
   # GET /weight_records.json
   def index
-    @weight_records = WeightRecord.all
+    @weight_records = WeightRecord.order(:time).reverse_order
 
     respond_to do |format|
       format.html # index.html.erb
