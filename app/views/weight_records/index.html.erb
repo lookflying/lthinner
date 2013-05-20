@@ -1,0 +1,27 @@
+<h1>Listing weight_records</h1>
+
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Weight</th>
+    <th>Info</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @weight_records.each do |weight_record| %>
+  <tr>
+    <td><%= weight_record.time %></td>
+    <td><%= weight_record.weight %></td>
+    <td><%= weight_record.info %></td>
+    <td><%= link_to 'Show', weight_record %></td>
+    <td><%= link_to 'Edit', edit_weight_record_path(weight_record) %></td>
+    <td><%= link_to 'Destroy', weight_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Weight record', new_weight_record_path %>

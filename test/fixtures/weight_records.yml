@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  time: 2013-05-20 01:47:56
+  weight: 9.99
+  info: MyString
+
+two:
+  time: 2013-05-20 01:47:56
+  weight: 9.99
+  info: MyString
