@@ -6,6 +6,7 @@ module WeightRecordsHelper
       str << record.time.to_s
       str << ','
       str << record.weight.to_s
+      str << ',1'
       str << '\\n'
     end
     return str
