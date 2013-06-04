@@ -7,7 +7,7 @@ class WeightRecordsController < ApplicationController
     @average = {}
 		@records.each do |record|
 		  sum += record.weight
-		  count += 1.to_i
+		  count += 1
 		  @average[record.time.to_s] = "%.1f" %(sum / count)
 		end
 	end

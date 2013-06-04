@@ -12,16 +12,42 @@ module WeightRecordsHelper
     return str
   end
 
-  def dygraph_format_avg(records)
+  def sum(num_array)
+    sum = 0
+    num_array.each do |num|
+      sum += num
+    end
+    return sum
+  end
+
+  def avg(num_array)
+    return sum(num_array) / num_array.length
+  end
+
+  def get_average(ordered_records, length)
+    q = []
+    average = {}
+    ordered_records.each do |record|
+      if q.length >= length
+        q.delete_at(0)
+      end
+      q.push(record.weight)
+      average[record.time.to_s] = "%.1f" % avg(q)
+    end
+    return average
+  end
+
+  def dygraph_format_avg(records, length)
     str = ""
     str << 'Date,Weight,Avg\\n'
+    average = get_average(records, length)
     records.each do |record|
       str << record.time.to_s
       str << ','
       str << record.weight.to_s
       str << ',1'
       str << ','
-      str << @average[record.time.to_s]
+      str << average[record.time.to_s]
       str << '\\n'
     end
     return str
