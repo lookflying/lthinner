@@ -1,8 +1,15 @@
 class WeightRecordsController < ApplicationController
 
 	def chart
-		@records = WeightRecord.all
-		@average = WeightRecord.average(:weight);
+		@records = WeightRecord.order(:time)
+		sum = 0;
+		count = 0;
+    @average = {}
+		@records.each do |record|
+		  sum += record.weight
+		  count += 1.to_i
+		  @average[record.time.to_s] = "%.1f" %(sum / count)
+		end
 	end
 
   # GET /weight_records
