@@ -40,3 +40,5 @@ gem 'jquery-rails'
 
 gem 'therubyracer'
 gem 'dygraphs-rails'
+gem 'devise'
+

@@ -1,4 +1,5 @@
 class WeightRecordsController < ApplicationController
+	before_filter :authenticate_user!
 
 	def chart
 		@records = WeightRecord.order(:time)
