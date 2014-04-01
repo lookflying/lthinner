@@ -10,7 +10,12 @@
 	<b>
 		<%= link_to 'List', weight_records_path %> |
 		<%= link_to 'Chart', chart_weight_records_path %> |
-		<%= link_to 'New Weight record', new_weight_record_path %>
+		<%= link_to 'New Weight record', new_weight_record_path %> |
+		<% if user_signed_in? %>
+			<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+		<% else %>
+			<%= link_to 'Sign in', new_user_session_path %>
+		<% end %>
 	</b>
 <%= yield %>
 
